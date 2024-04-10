@@ -3,39 +3,60 @@
   "version": "0.2.2",
   "description": "Tiny (~530 bytes) time math library for beautiful date handling/TTLs within your APIs.",
   "sourceType": "module",
-  "main": "./dist/itty-time.js",
-  "module": "./dist/itty-time.mjs",
-  "types": "./dist/itty-time.d.ts",
+  "main": "./itty-time.js",
+  "module": "./itty-time.mjs",
+  "types": "./types.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/itty-time.js",
-      "import": "./dist/itty-time.mjs",
-      "types": "./dist/itty-time.d.ts"
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./datePlus": {
+      "import": "./datePlus.mjs",
+      "require": "./datePlus.js",
+      "types": "./datePlus.d.ts"
+    },
+    "./toDuration": {
+      "import": "./toDuration.mjs",
+      "require": "./toDuration.js",
+      "types": "./toDuration.d.ts"
+    },
+    "./toMs": {
+      "import": "./toMs.mjs",
+      "require": "./toMs.js",
+      "types": "./toMs.d.ts"
+    },
+    "./toSeconds": {
+      "import": "./toSeconds.mjs",
+      "require": "./toSeconds.js",
+      "types": "./toSeconds.d.ts"
     }
   },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
   "scripts": {
-    "lint": "eslint src",
-    "test": "vitest --coverage --reporter verbose",
+    "dev": "yarn test",
+    "lint": "yarn run eslint src",
+    "prettier": "prettier --write src test example",
+    "format": "yarn lint && yarn prettier",
+    "test": "vitest --config ./vitest.config.ts --coverage --reporter verbose",
     "test:once": "vitest run",
-    "verify": "echo 'verifying module...' && run-s test:once build",
-    "dev": "run-p dev:lint test",
-    "dev:lint": "onchange -ik 'src/**/*.ts' -- yarn lint",
     "coverage": "vitest run --coverage",
     "coveralls": "yarn coverage && cat ./coverage/lcov.info | coveralls",
-    "format": "prettier src --write src",
+    "verify": "echo 'verifying module...' && yarn build && yarn test:once",
     "prerelease": "yarn verify",
+    "prerelease:next": "yarn verify",
     "prebuild": "rimraf dist && mkdir dist",
-    "build": "tsup src/itty-time.ts --format cjs,esm --minify --dts --clean",
-    "prepublishOnly": "yarn build",
-    "release": "release --tag --push --patch"
+    "build": "rollup -c",
+    "release": "release --tag --push --patch --src=dist",
+    "release:next": "release --tag --push --type=next --src=dist",
+    "runtime:bun": "bun example/bun.ts",
+    "runtime:node": "node example/node.js"
   },
   "keywords": [
+    "duration",
+    "human-readable",
     "ttl",
+    "time",
     "dates",
     "math",
     "string",
@@ -51,24 +72,28 @@
     "url": "https://github.com/kwhitley/itty-time/issues"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
-    "@vitest/coverage-c8": "0.24.3",
+    "@rollup/plugin-multi-entry": "^6.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
+    "@vitest/coverage-v8": "^1.4.0",
     "coveralls": "^3.1.1",
-    "esbuild": "^0.15.12",
-    "eslint": "^8.26.0",
-    "fs-extra": "^10.1.0",
-    "jsdom": "^20.0.1",
-    "npm-run-all": "4.1.5",
-    "onchange": "7.1.0",
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
-    "ts-node": "^10.9.1",
-    "tsup": "^6.3.0",
-    "typescript": "^4.8.4",
-    "uglify-js": "^3.17.3",
-    "vitest": "0.24.3",
-    "yarn": "^1.22.19",
-    "yarn-release": "^1.10.5"
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "fs-extra": "^11.2.0",
+    "globby": "^14.0.1",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.14.1",
+    "rollup-plugin-bundle-size": "^1.0.3",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-multi-input": "^1.4.1",
+    "typescript": "^5.4.4",
+    "vite": "^5.2.8",
+    "vitest": "^1.4.0",
+    "yarn-release": "^1.10.6"
   }
 }

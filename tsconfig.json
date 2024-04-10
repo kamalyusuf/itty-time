@@ -4,26 +4,25 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
     "declaration": true,
+    "sourceMap": true,
     "esModuleInterop": true,
     "inlineSourceMap": false,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom", "dom.iterable"],
     "listEmittedFiles": false,
     "listFiles": false,
-    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "pretty": true,
-    "resolveJsonModule": true,
+    // "moduleResolution": "nodeNext",  // disabled to be compatible with module: "esnext"
+    // "resolveJsonModule": true,       // disabled to be compatible with module: "esnext"
     "rootDir": "src",
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "traceResolution": false,
+    "outDir": "",
+    "target": "esnext",
     "module": "esnext",
-    "outDir": "dist/mjs",
-    "target": "esnext"
+    "types": ["@types/node"]
   },
-  "exclude": ["node_modules", "dist", "**/*.spec.ts"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "examples"],
   "include": ["src"]
 }
