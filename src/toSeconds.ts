@@ -4,19 +4,12 @@ import { units } from './lib/units'
 // FUNCTION: get number of seconds from a duration string
 export const toSeconds = (duration: string) => {
   const durations = duration.split(/,?\s*and\s*|,\s*/)
-  const now = new Date().setMilliseconds(0)
+  const now = Date.now()
   let next = now
 
   for (const d of durations) {
     const { value, unit } = getDurationSegments(d)
-
-    if (units[unit]) {
-      next += units[unit] * value
-    }
-    // else {
-    //   const from = new Date(next)
-    //   next = +new Date(from.setMonth(from.getMonth() + value * (unit === 'year' ? 12 : 1)))
-    // }
+    next += units[unit] ? units[unit] * value : 0
   }
 
   return next - now
