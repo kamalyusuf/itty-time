@@ -8,6 +8,7 @@ describe('toDuration(ms: number, parts?: number)', () => {
       { original: '1 week, 3 days, 30 minutes' },
       // { original: '1 month, 4 minutes, 20 seconds', parts: 2, expected: '1 month, 4 minutes' },
       { original: '1 hour and 30 minutes', parts: 2, expected: '1 hour, 30 minutes' },
+      { original: '2 days and 23 hours', parts: 1, expected: '2 days' },
     ]
 
     for (const { original, parts, expected = original } of tests) {

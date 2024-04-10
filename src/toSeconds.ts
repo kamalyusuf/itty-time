@@ -11,7 +11,7 @@ export const toSeconds = (duration: string) => {
     const { value, unit } = getDurationSegments(d)
 
     if (units[unit]) {
-      next += units[unit] * value * 1000
+      next += units[unit] * value
     }
     // else {
     //   const from = new Date(next)
@@ -19,5 +19,5 @@ export const toSeconds = (duration: string) => {
     // }
   }
 
-  return (next - now) / 1000
+  return next - now
 }

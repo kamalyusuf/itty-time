@@ -5,9 +5,7 @@ type DurationToStringOptions = {
 }
 
 export const toDuration = (ms: number, options: DurationToStringOptions = {}) => {
-  const {
-    parts = -1,
-  } = options
+  const { parts = -1 } = options
 
   const result = []
   ms = ms / 1000
