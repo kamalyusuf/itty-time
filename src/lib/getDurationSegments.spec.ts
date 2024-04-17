@@ -1,27 +1,29 @@
 import { describe, expect, it } from 'vitest'
 import { getDurationSegments } from './getDurationSegments'
 
-describe('getDurationSegments(duration: string): { value: number, unit: string }', () => {
+describe('getDurationSegments(duration: string): [number, string }', () => {
   const tests = [
-    ['5 seconds', { value: 5, unit: 'second' }],
-    ['1 minutes', { value: 1, unit: 'minute' }],
-    ['24 hour', { value: 24, unit: 'hour' }],
-    ['321 day', { value: 321, unit: 'day' }],
-    ['12 week', { value: 12, unit: 'week' }],
-    ['3 month', { value: 3, unit: 'month' }],
-    ['11 year', { value: 11, unit: 'year' }],
-    ['1.5 minutes', { value: 1.5, unit: 'minute' }],
-    ['20 ms', { value: 20, unit: 'ms' }],
+    ['5 seconds', [5, 'second']],
+    ['1 minutes', [1, 'minute']],
+    ['24 hour', [24, 'hour']],
+    ['321 day', [321, 'day']],
+    ['12 week', [12, 'week']],
+    ['3 month', [3, 'month']],
+    ['11 year', [11, 'year']],
+    ['1.5 minutes', [1.5, 'minute']],
+    ['20 ms', [20, 'ms']],
+    ['-5 seconds', [-5, 'second']],
+    ['+5 seconds', [5, 'second']],
   ]
 
   it('is case insensitive', () => {
-    const { unit } = getDurationSegments('5 MinUte')
+    const [,unit] = getDurationSegments('5 MinUte')
 
     expect(unit).toBe('minute')
   })
 
-  it('returns value in { value: number, unit: string } format, such as { value: 12, unit: "minute" }', () => {
-    const { value, unit} = getDurationSegments('5 minutes')
+  it('returns value in [number, string } format, such as [12, "minute"]', () => {
+    const [value, unit] = getDurationSegments('5 minutes')
 
     expect(value).toBe(5)
     expect(unit).toBe('minute')

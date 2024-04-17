@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { toSeconds } from './toSeconds'
 
 describe('toSeconds(duration: string): number', () => {
-  type SecondsTest = [duration: string, expected: number]
+  type SecondsTest = [duration: string | number, expected: number]
 
   const tests: SecondsTest[] = [
     ['5 seconds', 5],
@@ -12,6 +12,9 @@ describe('toSeconds(duration: string): number', () => {
     ['1 day, 4 hours, and 36 minutes', 60 * 60 * 24 + 60 * 60 * 4 + 60 * 36],
     ['321 day', 60 * 60 * 24 * 321],
     ['1.5 seconds', 1.5],
+    ['-30 seconds', -30],
+    ['1 hour, -30 minutes', 30 * 60],
+    [10000, 10],
   ]
 
   describe('returns number of seconds', () => {
