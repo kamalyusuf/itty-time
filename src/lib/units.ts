@@ -1,10 +1,10 @@
 export const units: Record<string, number> = {
-  'year': 365 * 24 * 60 * 60,
-  'month': 30 * 24 * 60 * 60,
-  'week': 7 * 24 * 60 * 60,
-  'day': 24 * 60 * 60,
-  'hour': 60 * 60,
-  'minute': 60,
-  'second': 1,
-  'm': 0.001, // translates to ms
+  'year': 365 * 24 * 60 * 60 * 1000,
+  'month': 30 * 24 * 60 * 60 * 1000,
+  'week': 7 * 24 * 60 * 60 * 1000,
+  'day': 24 * 60 * 60 * 1000,
+  'hour': 60 * 60 * 1000,
+  'minute': 60 * 1000,
+  'second': 1 * 1000,
+  'm': 1, // translates to ms
 }

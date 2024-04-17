@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
 import { toDuration } from './toDuration'
-import { toSeconds } from './toSeconds'
 import { toMs } from './toMs'
 
 describe('toDuration(ms: number, options?: ToDurationOptions)', () => {
@@ -44,17 +43,14 @@ describe('toDuration(ms: number, options?: ToDurationOptions)', () => {
   })
 
   it('can parse down to the millisecond', () => {
-    const duration = toDuration(1500)
-    expect(duration).toBe('1 second, 500 ms')
+    expect(toDuration(1500)).toBe('1 second, 500 ms')
   })
 
   it('can join with a different delimeter', () => {
-    const duration = toDuration(1500)
     expect(toDuration(1500, { join: ' and ' })).toBe('1 second and 500 ms')
   })
 
   it('can return ', () => {
-    const duration = toDuration(1500)
     expect(toDuration(1500, { join: ' and ' })).toBe('1 second and 500 ms')
   })
 })

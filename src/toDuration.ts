@@ -18,19 +18,15 @@ export const toDuration: DurationToStringType = (
     parts,
     join = ', ',
   }: DurationToStringOptions = {},
-  remainder = ms % 1000,            // internal argument - DO NOT EXPOSE
-  seconds = ms / 1000,              // internal argument - DO NOT EXPOSE
-  result: any = [],                 // internal argument - DO NOT EXPOSE
+  result: any = [], // internal argument - DO NOT EXPOSE
 ) => {
   for (const [unit, value] of Object.entries(units)) {
-    if (seconds >= value) {
-      const count = Math.floor(seconds / value)
-      seconds %= value
+    if (ms >= value) {
+      const count = Math.floor(ms / value)
+      ms %= value
       result.push([unit + (count > 1 ? 's' : ''), count])
     }
   }
-
-  // remainder && result.push(['ms', remainder])
 
   return join
   ? result
