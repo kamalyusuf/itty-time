@@ -1,4 +1,6 @@
 import { toMs } from './toMs'
 
-export const toSeconds = (duration: string | number): number =>
-  toMs(duration) / 1000
+type DurationToSecondsType = (duration: string | number) => number
+
+export const toSeconds: DurationToSecondsType =
+  (duration: string | number): number => toMs(duration) / 1000

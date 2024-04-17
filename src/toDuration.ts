@@ -5,18 +5,27 @@ type DurationToStringOptions = {
   join?: string | false
 }
 
-export const toDuration = (ms: number, {
-  parts,
-  join = ', ',
-}: DurationToStringOptions = {},
-remainder = ms % 1000) => {
-  const result = []
-  ms /= 1000
+type UnformattedDurationSegment = [ unit: string, value: number ]
 
+type DurationToStringType = (
+  milliseconds: number,
+  options?: DurationToStringOptions
+) => string | UnformattedDurationSegment[]
+
+export const toDuration: DurationToStringType = (
+  ms: number,
+  {
+    parts,
+    join = ', ',
+  }: DurationToStringOptions = {},
+  remainder = ms % 1000,            // internal argument - DO NOT EXPOSE
+  result: any = [],                 // internal argument - DO NOT EXPOSE
+  seconds = ms / 1000,              // internal argument - DO NOT EXPOSE
+) => {
   for (const [unit, value] of Object.entries(units)) {
-    if (ms >= value) {
-      const count = Math.floor(ms / value)
-      ms %= value
+    if (seconds >= value) {
+      const count = Math.floor(seconds / value)
+      seconds %= value
       result.push([`${unit}${count > 1 ? 's' : ''}`, count])
     }
   }
@@ -24,36 +33,7 @@ remainder = ms % 1000) => {
   remainder && result.push(['ms', remainder])
 
   return join
+  // @ts-ignore
   ? result.slice(0, parts).map(([units, count]) => `${count} ${units}`).join(join)
   : result
 }
-
-// export const toDuration = (
-//   ms: number,
-//   {
-//     parts,
-//     join = ', ',
-//   }: DurationToStringOptions = {},
-//   remainder = ms % 1000,
-//   useMs = ms / 1000,
-// ) => {
-//  const result =
-//   Object
-//     .entries(units)
-//     .reduce((acc: any, [unit, value]) => {
-//       if (useMs >= value) {
-//         const count = Math.floor(useMs / value)
-//         useMs %= value
-//         acc.push([`${unit}${count > 1 ? 's' : ''}`, count])
-//       }
-
-//       return acc
-//     }, [])
-//     .concat(remainder ? [['ms', remainder]] : [])
-
-//   // console.log({ result })
-//   return join
-//   // @ts-ignore
-//   ? result.slice(0, parts).map(([units, count]) => `${count} ${units}`).join(join)
-//   : result
-// }
