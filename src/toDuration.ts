@@ -19,8 +19,8 @@ export const toDuration: DurationToStringType = (
     join = ', ',
   }: DurationToStringOptions = {},
   remainder = ms % 1000,            // internal argument - DO NOT EXPOSE
-  result: any = [],                 // internal argument - DO NOT EXPOSE
   seconds = ms / 1000,              // internal argument - DO NOT EXPOSE
+  result: any = [],                 // internal argument - DO NOT EXPOSE
 ) => {
   for (const [unit, value] of Object.entries(units)) {
     if (seconds >= value) {
@@ -30,12 +30,12 @@ export const toDuration: DurationToStringType = (
     }
   }
 
-  remainder && result.push(['ms', remainder])
+  // remainder && result.push(['ms', remainder])
 
   return join
   ? result
       .slice(0, parts)
       .map(([units, count]: any) => count + ' ' + units)
       .join(join)
-  : result
+  : result.slice(0, parts)
 }

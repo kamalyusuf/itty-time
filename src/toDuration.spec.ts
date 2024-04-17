@@ -37,6 +37,9 @@ describe('toDuration(ms: number, options?: ToDurationOptions)', () => {
       it('will return an array of [unit, count] if set to false', () => {
         expect(Array.isArray(toDuration(toMs('1 week, 12 hours'), { join: false }))).toBe(true)
       })
+      it('will honor parts number if returning array', () => {
+        expect(toDuration(toMs('1 week, 12 hours'), { join: false, parts: 1 }).length).toBe(1)
+      })
     })
   })
 

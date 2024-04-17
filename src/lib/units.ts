@@ -6,4 +6,5 @@ export const units: Record<string, number> = {
   'hour': 60 * 60,
   'minute': 60,
   'second': 1,
+  'm': 0.001, // translates to ms
 }
