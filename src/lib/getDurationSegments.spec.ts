@@ -6,6 +6,7 @@ describe('getDurationSegments(duration: string): [number, string }', () => {
     ['5 seconds', [5, 'second']],
     ['1 minutes', [1, 'minute']],
     ['24 hour', [24, 'hour']],
+    ['24 HOUR', [24, 'hour']],
     ['321 day', [321, 'day']],
     ['12 week', [12, 'week']],
     ['3 month', [3, 'month']],
