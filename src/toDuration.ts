@@ -33,7 +33,9 @@ export const toDuration: DurationToStringType = (
   remainder && result.push(['ms', remainder])
 
   return join
-  // @ts-ignore
-  ? result.slice(0, parts).map(([units, count]) => `${count} ${units}`).join(join)
+  ? result
+      .slice(0, parts)
+      .map(([units, count]: any) => count + ' ' + units)
+      .join(join)
   : result
 }
