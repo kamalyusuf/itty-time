@@ -11,6 +11,7 @@ describe('toMs(duration: string): number', () => {
     ['1 day, 4 hours, and 36 minutes', 60 * 60 * 24 * 1000 + 60 * 60 * 4 * 1000 + 60 * 36 * 1000],
     ['321 day', 60 * 60 * 24 * 321 * 1000],
     ['30 seconds, 10 ms', 30 * 1000 + 10],
+    ['30.5 seconds', 30.5 * 1000],
     [4001, 4001],
   ]
 
