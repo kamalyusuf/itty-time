@@ -11,6 +11,7 @@ describe('getDurationSegments(duration: string): { value: number, unit: string }
     ['3 month', { value: 3, unit: 'month' }],
     ['11 year', { value: 11, unit: 'year' }],
     ['1.5 minutes', { value: 1.5, unit: 'minute' }],
+    ['20 ms', { value: 20, unit: 'ms' }],
   ]
 
   it('is case insensitive', () => {

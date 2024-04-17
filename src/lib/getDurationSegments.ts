@@ -5,7 +5,7 @@ type DurationSegments = {
 
 // FUNCTION: get { value, unit } from a duration string
 export const getDurationSegments = (duration: string): DurationSegments => {
-  const match = duration.toLowerCase().match(/^(?<strValue>[\d.]+)?\s?(?<unit>\w+?)s?$/)
+  const match = duration.toLowerCase().match(/^(?<strValue>[\d.]+)?\s?(?<unit>\w{2,}?)s?$/)
   // @ts-ignore
   const { strValue, unit } = match.groups
   const value = +(strValue === undefined ? 1 : strValue)

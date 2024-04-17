@@ -11,16 +11,15 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/kwhitley/itty-time?style=social)](https://github.com/kwhitley/itty-time)
 [![Twitter](https://img.shields.io/twitter/follow/kevinrwhitley.svg?style=social&label=Follow)](https://www.twitter.com/kevinrwhitley)
 
-Tiny (~500 bytes) time math library for making date handling and TTLs within your APIs beautiful.
+Tiny (~520 bytes) time math library for making date handling and TTLs within your APIs beautiful.
 
 ## Features
 
-- Tiny @ ~500 bytes gzipped total, and tree-shakeable even further.
-- Fully typed/TypeScript support
-- Use plain text strings to describe time, not seconds/milliseconds
-- Get TTLs
-- Get future dates
-- Divide durations
+- Tiny @ ~520 bytes gzipped total, and tree-shakeable even further.
+- Fully typed/TypeScript support.
+- Use plain text strings to describe durations.
+- Get future dates and TTLs.
+- Get human-readable string durations from ms durations.
 
 ### WARNING - pre-release
 This API, *specifically around the naming of exposed functions* may likely change in the next few days.  In the meantime, use/play at your own risk.  API changes will be broadcasted here and [on Discord](https://discord.com/channels/832353585802903572/1033783747809648680).
