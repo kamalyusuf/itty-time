@@ -17,4 +17,3 @@ export const toMs: DurationToMsType =
         b: any,
         [value, unit] = getDurationSegments(d)
       ) => acc + (units[unit] ? units[unit] * 1000 : 1) * value, ms)
-

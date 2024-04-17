@@ -6,6 +6,7 @@ describe('toMs(duration: string): number', () => {
 
   const tests: MsTest[] = [
     ['1 minutes', 60 * 1000],
+    ['1 minutes, 2 seconds', 60 * 1000 + 2 * 1000],
     ['24 hour', 60 * 60 * 24 * 1000],
     ['2 years', 2 * 365 * 24 * 60 * 60 * 1000],
     ['1 day, 4 hours, and 36 minutes', 60 * 60 * 24 * 1000 + 60 * 60 * 4 * 1000 + 60 * 36 * 1000],

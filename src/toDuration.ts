@@ -26,7 +26,7 @@ export const toDuration: DurationToStringType = (
     if (seconds >= value) {
       const count = Math.floor(seconds / value)
       seconds %= value
-      result.push([`${unit}${count > 1 ? 's' : ''}`, count])
+      result.push([unit + (count > 1 ? 's' : ''), count])
     }
   }
 
