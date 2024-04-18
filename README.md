@@ -52,7 +52,7 @@ Tiny (~470 bytes) time library for simplifying date math and TTLs.
 - Use plain text strings to describe durations.
 - Get future dates and TTLs.
 - Get human-readable string durations from numeric (ms) durations.
-- [TypeScript](https://itty.dev/itty-time/typescript). Powerfully (and flexibly) typed for any environment.
+- Fully Typed/TypeScript support.
 - [100% Test Coverage](https://coveralls.io/github/kwhitley/itty-time?branch=v1.x). Bulletproof for production peace-of-mind.
 
 ## toSeconds/toMs
