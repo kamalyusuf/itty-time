@@ -44,11 +44,11 @@
 
 ---
 
-Ultra-small (~460 bytes) library for simplifying date math and TTLs.
+Ultra-small (~450 bytes) library for simplifying date math and TTLs.
 
 ## Features
 
-- Tiny. The entire library is ~460 bytes, or take only what you need.
+- Tiny. The entire library is ~450 bytes, or take only what you need.
 - Works anywhere, period.
 - Use plain text strings to describe durations.
 - Get future dates and TTLs.
