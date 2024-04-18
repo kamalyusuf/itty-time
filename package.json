@@ -45,14 +45,19 @@
     "release:next": "release --tag --push --type=next --src=dist"
   },
   "keywords": [
+    "humanize",
     "duration",
-    "human-readable",
     "ttl",
     "time",
     "dates",
-    "math",
+    "seconds",
+    "minutes",
+    "hours",
+    "days",
+    "weeks",
+    "months",
     "string",
-    "divide"
+    "readable"
   ],
   "repository": {
     "type": "git",
