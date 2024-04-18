@@ -5,15 +5,16 @@ type MsType = (duration: string | number) => number
 
 // FUNCTION: get number of seconds from a duration string
 export const ms: MsType =
-  (duration: string | number, ms = 0): number =>
-    Number(duration) ||
+  (duration: string | number): number =>
+    +duration ||
     duration
       // @ts-ignore
-      .split(/,?\s*and\s*|,\s*/)
+      .split(/[,and\s]+\s/) // require commas
+      // .split(/[\sand,]+(?=[-\d]+)/) // don't require commas
       .reduce((
         acc: any,
         d: any,
-        a: any,
-        b: any,
+        _: any,
+        __: any,
         [value, unit] = getDurationSegments(d)
-      ) => acc + (units[unit] || 1) * value, ms)
+      ) => acc + (units[unit] || 1) * value, 0)
