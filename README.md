@@ -44,7 +44,7 @@
 
 ---
 
-Tiny (~470 bytes) time library for simplifying date math and TTLs.
+Ultra-small (~450 bytes) library for simplifying date math and TTLs.
 
 ## Features
 
