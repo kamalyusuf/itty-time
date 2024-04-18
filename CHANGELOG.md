@@ -1,8 +1,10 @@
 ## Changelog
 
 #### v1.0.0
-- changed API (see README)
-- added toDuration()
-- massive code-golfing round
+- BREAKING: changed getSeconds() --> toSeconds()
+- added: toMs()
+- added: toDuration()
+- datePlus() remains the same
+- maintenance: code-golfing!
 #### v0.1.0 
 - first public release
