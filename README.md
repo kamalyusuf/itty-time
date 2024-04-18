@@ -20,9 +20,9 @@
   <a href="https://coveralls.io/github/kwhitley/itty-time?branch=v1.x" target="_blank">
     <img src="https://img.shields.io/coveralls/github/kwhitley/itty-time/v1.x?style=flat-square" alt="code coverage" />
   </a>
-  <a href="https://npmjs.com/package/itty-time" target="_blank">
+  <!-- <a href="https://npmjs.com/package/itty-time" target="_blank">
     <img src="https://img.shields.io/npm/dw/itty-time?style=flat-square" alt="weekly downloads" />
-  </a>
+  </a> -->
   <a href="https://github.com/kwhitley/itty-time/issues" target="_blank">
     <img src="https://img.shields.io/github/issues/kwhitley/itty-time?style=flat-square" alt="open issues" />
   </a>
@@ -44,11 +44,12 @@
 
 ---
 
-Ultra-small (~450 bytes) library for simplifying date math and TTLs.
+Ultra-small (~460 bytes) library for simplifying date math and TTLs.
 
 ## Features
 
 - Tiny. The entire library is under 500 bytes, or take only what you need.
+- Works anywhere, period.
 - Use plain text strings to describe durations.
 - Get future dates and TTLs.
 - Get human-readable string durations from numeric (ms) durations.
