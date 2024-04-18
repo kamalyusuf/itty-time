@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { datePlus } from './datePlus'
-import { toSeconds } from './toSeconds'
+import { seconds } from './seconds'
 
 describe('datePlus(duration: string, from?: Date): Date', () => {
   type DatePlusTest = [duration: string]
@@ -21,7 +21,7 @@ describe('datePlus(duration: string, from?: Date): Date', () => {
 
       it(`datePlus('${duration}') => ${future.toISOString()}`, () => {
 
-        const Seconds = toSeconds(duration)
+        const Seconds = seconds(duration)
         const diff = (+future - +new Date()) / 1000|0 - Seconds
 
         expect(diff).toBeLessThan(2)
@@ -36,7 +36,7 @@ describe('datePlus(duration: string, from?: Date): Date', () => {
 
       it(`datePlus('${duration}', datePlus('1 year')) => ${future.toISOString()}`, () => {
 
-        const Seconds = toSeconds(duration)
+        const Seconds = seconds(duration)
         const diff = (+future - +oneYearFromNow) / 1000|0 - Seconds
 
         expect(diff).toBeLessThan(2)

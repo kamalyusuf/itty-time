@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { toMs } from './toMs'
+import { ms } from './ms'
 
-describe('toMs(duration: string): number', () => {
+describe('ms(duration: string): number', () => {
   type MsTest = [duration: string | number, expected: number]
 
   const tests: MsTest[] = [
@@ -18,8 +18,8 @@ describe('toMs(duration: string): number', () => {
 
   describe('returns number of Ms', () => {
     for (const [duration, expected] of tests) {
-      it(`toMs('${duration}') => ${expected}`, () => {
-        expect(toMs(duration)).toEqual(expected)
+      it(`ms('${duration}') => ${expected}`, () => {
+        expect(ms(duration)).toEqual(expected)
       })
     }
   })

@@ -55,10 +55,10 @@ Ultra-small (~450 bytes) library for simplifying date math and TTLs.
 - Fully Typed/TypeScript support.
 - [100% Test Coverage](https://coveralls.io/github/kwhitley/itty-time?branch=v1.x). Bulletproof for production peace-of-mind.
 
-## toSeconds/toMs
+## seconds/ms
 <h4>
-  <code>toSeconds(duration: string) => number</code><br />
-  <code>toMs(duration: string) => number</code><br />
+  <code>seconds(duration: string) => number</code><br />
+  <code>ms(duration: string) => number</code><br />
 </h4>
 
 TTL math is a maintenance nightmare. It's a pain to write, a pain to read, and when you update the math later, you'll probably forget to update the comment, causing all sorts of mayhem.
@@ -70,21 +70,21 @@ const TTL = 2 * 7 * 24 * 60 * 60 * 1000 // 2 weeks, right?
 Here's a better way.
 
 ```ts
-import { toMs, toSeconds } from 'itty-time'
+import { ms, seconds } from 'itty-time'
 
 // to seconds
-toSeconds('2 weeks')
+seconds('2 weeks')
 
 // to milliseconds
-toMs('2 weeks')
+ms('2 weeks')
 
 // handles elaborate inputs :)
-toMs('3 days, 2.5 hours, and 1 minute')
+ms('3 days, 2.5 hours, and 1 minute')
 ```
 
-## toDuration
+## duration
 <h4>
-  <code>toDuration(ms: number) => string</code>
+  <code>duration(ms: number) => string</code>
 </h4>
 
 Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?  
@@ -94,28 +94,28 @@ You could build it yourself, or import the fantastic [humanize-duration](https:/
 <sup>1: of course [humanize-duration](https://www.npmjs.com/package/humanize-duration) can also do much, much more.</sup>
 
 ```ts
-import { toDuration } from 'itty-time'
+import { duration } from 'itty-time'
 
 // string durations
-toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000)
+duration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000)
 // "1 hour, 2 minutes, 30 seconds"
 
 // limit number of segments
-toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { parts: 2 })
+duration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { parts: 2 })
 // "1 hour, 2 minutes"
 
 // change the delimiter
-toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: '|' })
+duration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: '|' })
 // "1 hour|2 minutes|30 seconds"
 
 // or get the raw components
-toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: false })
+duration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: false })
 // [['hour', 1],['minutes', 2],['seconds', 30]]
 ```
 
 ## datePlus
 <h4>
-  <code>datePlus(duration: string, from = new Date) => Date</code>
+  <code>datePlus(duration: string | number, from = new Date) => Date</code>
 </h4>
 
 Sometimes you need a TTL for some point in the future, but sometimes you need the actual date.  You could convert it all yourself... or use this.

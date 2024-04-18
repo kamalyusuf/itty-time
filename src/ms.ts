@@ -1,10 +1,10 @@
 import { getDurationSegments } from './lib/getDurationSegments'
 import { units } from './lib/units'
 
-type DurationToMsType = (duration: string | number) => number
+type MsType = (duration: string | number) => number
 
 // FUNCTION: get number of seconds from a duration string
-export const toMs: DurationToMsType =
+export const ms: MsType =
   (duration: string | number, ms = 0): number =>
     Number(duration) ||
     duration

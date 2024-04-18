@@ -16,20 +16,20 @@
       "require": "./datePlus.js",
       "types": "./datePlus.d.ts"
     },
-    "./toDuration": {
-      "import": "./toDuration.mjs",
-      "require": "./toDuration.js",
-      "types": "./toDuration.d.ts"
+    "./duration": {
+      "import": "./duration.mjs",
+      "require": "./duration.js",
+      "types": "./duration.d.ts"
     },
-    "./toMs": {
-      "import": "./toMs.mjs",
-      "require": "./toMs.js",
-      "types": "./toMs.d.ts"
+    "./ms": {
+      "import": "./ms.mjs",
+      "require": "./ms.js",
+      "types": "./ms.d.ts"
     },
-    "./toSeconds": {
-      "import": "./toSeconds.mjs",
-      "require": "./toSeconds.js",
-      "types": "./toSeconds.d.ts"
+    "./seconds": {
+      "import": "./seconds.mjs",
+      "require": "./seconds.js",
+      "types": "./seconds.d.ts"
     }
   },
   "scripts": {
@@ -50,12 +50,6 @@
     "ttl",
     "time",
     "dates",
-    "seconds",
-    "minutes",
-    "hours",
-    "days",
-    "weeks",
-    "months",
     "string",
     "readable"
   ],
