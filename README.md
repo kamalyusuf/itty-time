@@ -48,30 +48,51 @@ Tiny (~500 bytes) time library for simplifying date math and TTLs.
 
 ## Features
 
-- Tiny. ~500 bytes gzipped total, and tree-shakeable even further.
-- [TypeScript](https://itty.dev/itty-time/typescript). Powerfully (and flexibly) typed for any environment.
-- [100% Test Coverage](https://coveralls.io/github/kwhitley/itty-time?branch=v1.x). Bulletproof for production peace-of-mind.
+- Tiny. The entire library fits under 500 bytes, or take only what you need.
 - Use plain text strings to describe durations.
 - Get future dates and TTLs.
 - Get human-readable string durations from numeric (ms) durations.
+- [TypeScript](https://itty.dev/itty-time/typescript). Powerfully (and flexibly) typed for any environment.
+- [100% Test Coverage](https://coveralls.io/github/kwhitley/itty-time?branch=v1.x). Bulletproof for production peace-of-mind.
 
-## Examples
+## toSeconds/toMs
+<h4>
+  <code>toSeconds(duration: string) => number</code><br />
+  <code>toMs(duration: string) => number</code><br />
+</h4>
 
-### Converting human-readable durations to seconds/ms
+TTL math is a maintenance nightmare.  It's a pain to write, a pain to read, and when you modify later, someone always forgets to update the comment that make it human-readable.  
+
+```ts
+const TTL = 2 * 7 * 24 * 60 * 60 * 1000 // 2 weeks
+```
+
+Here's a better way.
+
 ```ts
 import { toMs, toSeconds } from 'itty-time'
 
 // to seconds
-toSeconds('1 hour') // 1 * 60 * 60 === 3600
+const ttlSeconds = toSeconds('2 weeks')
 
 // to milliseconds
-toMs('1 hour') // 1 * 60 * 60 * 1000 === 3600000
+const ttlMs = toMs('2 weeks')
 
-// handles elaborate inputs
-toSeconds('3 days, 2.5 hours, and 1 minute')
+// handles elaborate inputs :)
+toMs('3 days, 2.5 hours, and 1 minute')
 ```
 
-### Converting ms to human-readable durations
+## toDuration
+<h4>
+  <code>toDuration(ms: number) => string</code>
+</h4>
+
+Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?  
+
+You could build it yourself, or import the fantastic [humanize-duration](https://www.npmjs.com/package/humanize-duration) library that inspired this, but at 6.3kB<sup>1</sup>, it's 20x the size of this one (300 bytes).
+
+<sup>1: of course it can also do much, much more.</sup>
+
 ```ts
 import { toDuration } from 'itty-time'
 
@@ -92,7 +113,13 @@ toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: false })
 // [['hour', 1],['minutes', 2],['seconds', 30]]
 ```
 
-### Adding time to dates
+## datePlus
+<h4>
+  <code>datePlus(duration: string, from = new Date) => Date</code>
+</h4>
+
+Sometimes you need a TTL for some point in the future, but sometimes you need the actual date.  You could convert it all yourself... or use this.
+
 ```js
 import { datePlus } from 'itty-time'
 
