@@ -48,6 +48,7 @@
     "humanize",
     "duration",
     "ttl",
+    "ms",
     "time",
     "dates",
     "string",

@@ -48,13 +48,18 @@ Ultra-small (~460 bytes) library for simplifying date math and TTLs.
 
 ## Features
 
-- Tiny. The entire library is under 500 bytes, or take only what you need.
+- Tiny. The entire library is ~460 bytes, or take only what you need.
 - Works anywhere, period.
 - Use plain text strings to describe durations.
 - Get future dates and TTLs.
 - Get human-readable string durations from numeric (ms) durations.
-- Fully Typed/TypeScript support.
-- [100% Test Coverage](https://coveralls.io/github/kwhitley/itty-time?branch=v1.x). Bulletproof for production peace-of-mind.
+
+## Size Comparison
+| library | size<sup>1</sup> | relative |
+| --- | --- | --- |
+| [itty-time](https://www.npmjs.com/package/itty-time) | 460 bytes | 
+
+<sup>1: minified and gzipped</sup>
 
 ## seconds/ms
 <h4>
@@ -74,18 +79,18 @@ Here's a better way.
 import { ms, seconds } from 'itty-time'
 
 // to seconds
-seconds('2 weeks')
+seconds('2 weeks') // 1209600
 
 // to milliseconds
-ms('2 weeks')
+ms('2 weeks') // 1209600000
 
 // handles multi-part inputs :)
-ms('3 days, 2.5 hours, and 1 minute')
+ms('3 days, 2.5 hours, and 1 minute') // 268260000
 ```
 
 ## duration
 <h4>
-  <code>duration(ms: number, options?) => string</code>
+  <code>duration(ms: number) => string</code>
 </h4>
 
 Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?  
@@ -97,11 +102,10 @@ You could build it yourself, or import the fantastic [humanize-duration](https:/
 ```ts
 import { duration } from 'itty-time'
 
-// string durations
 duration(3750000)
 // "1 hour, 2 minutes, 30 seconds"
 
-// limit number of segments
+// limit number of segments returned
 duration(3750000, { parts: 2 })
 // "1 hour, 2 minutes"
 
@@ -111,12 +115,18 @@ duration(3750000, { join: ' --> ' })
 
 // or get the raw components
 duration(3750000, { join: false })
-// [['hour', 1],['minutes', 2],['seconds', 30]]
+/*
+  [
+    ['hour', 1],
+    ['minutes', 2],
+    ['seconds', 30]
+  ]
+/*
 ```
 
 ## datePlus
 <h4>
-  <code>datePlus(duration: string | number, from = new Date) => Date</code>
+  <code>datePlus(duration: string, from = new Date) => Date</code>
 </h4>
 
 Sometimes you need a TTL for some point in the future, but sometimes you need the actual date.  You could convert it all yourself... or use this.
@@ -125,8 +135,8 @@ Sometimes you need a TTL for some point in the future, but sometimes you need th
 import { datePlus } from 'itty-time'
 
 // from right now
-datePlus('2 months, 1 week') // 2024-12-23T00:11:58.534Z
+datePlus('2 months, 1 week')
 
 // or from a different date
-datePlus('2 months', datePlus('1 week')) // 2024-12-23T00:11:58.534Z
+datePlus('2 months', datePlus('1 week'))
 ```
