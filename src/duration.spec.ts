@@ -9,6 +9,7 @@ describe('duration(ms: number, options?: durationOptions)', () => {
       // { original: '1 month, 4 minutes, 20 seconds', parts: 2, expected: '1 month, 4 minutes' },
       { original: '1 hour, 30 minutes, 15 seconds', parts: 2, expected: '1 hour, 30 minutes' },
       { original: '2 days, 23 hours', parts: 1, expected: '2 days' },
+      { original: '1 ms', expected: '1 ms' },
     ]
 
     for (const { original, parts, expected = original } of tests) {

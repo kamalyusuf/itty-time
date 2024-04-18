@@ -24,7 +24,7 @@ export const duration: DurationType = (
     if (ms >= value) {
       const count = Math.floor(ms / value)
       ms %= value
-      result.push([unit + (count > 1 ? 's' : ''), count])
+      result.push([unit + (count > 1 || unit == 'm' ? 's' : ''), count])
     }
   }
 

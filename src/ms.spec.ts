@@ -13,7 +13,9 @@ describe('ms(duration: string): number', () => {
     ['321 day', 60 * 60 * 24 * 321 * 1000],
     ['30 seconds, 10 ms', 30 * 1000 + 10],
     ['30.5 seconds', 30.5 * 1000],
-    [4001, 4001],
+    [4001, 4001], // a number is assumed to be a number
+    ['100', 100], // string of a number is assumed to be ms
+    ['100 ms', 100], // can handle ms
   ]
 
   describe('returns number of Ms', () => {
