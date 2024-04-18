@@ -79,13 +79,13 @@ seconds('2 weeks')
 // to milliseconds
 ms('2 weeks')
 
-// handles elaborate inputs :)
+// handles multi-part inputs :)
 ms('3 days, 2.5 hours, and 1 minute')
 ```
 
 ## duration
 <h4>
-  <code>duration(ms: number) => string</code>
+  <code>duration(ms: number, options?) => string</code>
 </h4>
 
 Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?  
@@ -98,19 +98,19 @@ You could build it yourself, or import the fantastic [humanize-duration](https:/
 import { duration } from 'itty-time'
 
 // string durations
-duration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000)
+duration(3750000)
 // "1 hour, 2 minutes, 30 seconds"
 
 // limit number of segments
-duration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { parts: 2 })
+duration(3750000, { parts: 2 })
 // "1 hour, 2 minutes"
 
 // change the delimiter
-duration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: '|' })
-// "1 hour|2 minutes|30 seconds"
+duration(3750000, { join: ' --> ' })
+// "1 hour --> 2 minutes --> 30 seconds"
 
 // or get the raw components
-duration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: false })
+duration(3750000, { join: false })
 // [['hour', 1],['minutes', 2],['seconds', 30]]
 ```
 
