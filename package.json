@@ -1,6 +1,6 @@
 {
   "name": "itty-time",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Ultra-small (~470 bytes) time library for simplifying date math and TTLs.",
   "main": "./index.js",
   "module": "./index.mjs",
