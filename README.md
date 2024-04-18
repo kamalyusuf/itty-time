@@ -48,7 +48,7 @@ Ultra-small (~450 bytes) library for simplifying date math and TTLs.
 
 ## Features
 
-- Tiny. The entire library fits under 500 bytes, or take only what you need.
+- Tiny. The entire library is under 500 bytes, or take only what you need.
 - Use plain text strings to describe durations.
 - Get future dates and TTLs.
 - Get human-readable string durations from numeric (ms) durations.
@@ -61,10 +61,10 @@ Ultra-small (~450 bytes) library for simplifying date math and TTLs.
   <code>toMs(duration: string) => number</code><br />
 </h4>
 
-TTL math is a maintenance nightmare.  It's a pain to write, a pain to read, and when you modify later, someone always forgets to update the comment that make it human-readable.  
+TTL math is a maintenance nightmare. It's a pain to write, a pain to read, and when you update the math later, you'll probably forget to update the comment, causing all sorts of mayhem.
 
 ```ts
-const TTL = 2 * 7 * 24 * 60 * 60 * 1000 // 2 weeks
+const TTL = 2 * 7 * 24 * 60 * 60 * 1000 // 2 weeks, right?
 ```
 
 Here's a better way.
@@ -73,10 +73,10 @@ Here's a better way.
 import { toMs, toSeconds } from 'itty-time'
 
 // to seconds
-const ttlSeconds = toSeconds('2 weeks')
+toSeconds('2 weeks')
 
 // to milliseconds
-const ttlMs = toMs('2 weeks')
+toMs('2 weeks')
 
 // handles elaborate inputs :)
 toMs('3 days, 2.5 hours, and 1 minute')
@@ -89,9 +89,9 @@ toMs('3 days, 2.5 hours, and 1 minute')
 
 Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?  
 
-You could build it yourself, or import the fantastic [humanize-duration](https://www.npmjs.com/package/humanize-duration) library that inspired this, but at 6.3kB<sup>1</sup>, it's 20x the size of this one (300 bytes).
+You could build it yourself, or import the fantastic [humanize-duration](https://www.npmjs.com/package/humanize-duration) library that inspired this, but at 6.3kB<sup>1</sup>, it's 20x the size of this function (300 bytes).
 
-<sup>1: of course it can also do much, much more.</sup>
+<sup>1: of course [humanize-duration](https://www.npmjs.com/package/humanize-duration) can also do much, much more.</sup>
 
 ```ts
 import { toDuration } from 'itty-time'
