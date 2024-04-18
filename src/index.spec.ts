@@ -2,9 +2,9 @@ import { describe, expect, it } from 'vitest'
 import * as exports from './index'
 
 const expected = [
-  'toSeconds',
-  'toMs',
-  'toDuration',
+  'seconds',
+  'ms',
+  'duration',
   'datePlus'
 ]
 

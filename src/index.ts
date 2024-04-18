@@ -1,5 +1,5 @@
 export * from './datePlus'
-export * from './toDuration'
-export * from './toMs'
-export * from './toSeconds'
+export * from './duration'
+export * from './ms'
+export * from './seconds'
 

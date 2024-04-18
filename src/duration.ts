@@ -1,30 +1,30 @@
 import { units } from './lib/units'
 
-type DurationToStringOptions = {
+type DurationOptions = {
   parts?: number
   join?: string | false
 }
 
 type UnformattedDurationSegment = [ unit: string, value: number ]
 
-type DurationToStringType = (
+type DurationType = (
   milliseconds: number,
-  options?: DurationToStringOptions
+  options?: DurationOptions
 ) => string | UnformattedDurationSegment[]
 
-export const toDuration: DurationToStringType = (
+export const duration: DurationType = (
   ms: number,
   {
     parts,
     join = ', ',
-  }: DurationToStringOptions = {},
+  }: DurationOptions = {},
   result: any = [], // internal argument - DO NOT EXPOSE
 ) => {
   for (const [unit, value] of Object.entries(units)) {
     if (ms >= value) {
       const count = Math.floor(ms / value)
       ms %= value
-      result.push([unit + (count > 1 ? 's' : ''), count])
+      result.push([unit + (count > 1 || unit == 'm' ? 's' : ''), count])
     }
   }
 

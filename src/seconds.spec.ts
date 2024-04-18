@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { toSeconds } from './toSeconds'
+import { seconds } from './seconds'
 
-describe('toSeconds(duration: string): number', () => {
+describe('seconds(duration: string): number', () => {
   type SecondsTest = [duration: string | number, expected: number]
 
   const tests: SecondsTest[] = [
@@ -19,13 +19,13 @@ describe('toSeconds(duration: string): number', () => {
 
   describe('returns number of seconds', () => {
     for (const [duration, expected] of tests) {
-      it(`toSeconds('${duration}') => ${expected}`, () => {
-        expect(toSeconds(duration)).toEqual(expected)
+      it(`seconds('${duration}') => ${expected}`, () => {
+        expect(seconds(duration)).toEqual(expected)
       })
     }
   })
 
   it('translatest unknown quantities to ms', () => {
-    expect(toSeconds('2 seconds, 5 apple')).toBe(2.005)
+    expect(seconds('2 seconds, 5 apple')).toBe(2.005)
   })
 })

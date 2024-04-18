@@ -1,10 +1,19 @@
+const
+  second = 1e3,
+  minute = second * 60,
+  hour = minute * 60,
+  day = hour * 24,
+  week = day * 7,
+  month = day * 30,
+  year = day * 365
+
 export const units: Record<string, number> = {
-  'year': 365 * 24 * 60 * 60 * 1000,
-  'month': 30 * 24 * 60 * 60 * 1000,
-  'week': 7 * 24 * 60 * 60 * 1000,
-  'day': 24 * 60 * 60 * 1000,
-  'hour': 60 * 60 * 1000,
-  'minute': 60 * 1000,
-  'second': 1 * 1000,
-  'm': 1, // translates to ms
+  year,
+  month,
+  week,
+  day,
+  hour,
+  minute,
+  second,
+  m: 1, // translates to ms
 }
