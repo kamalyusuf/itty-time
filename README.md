@@ -58,14 +58,13 @@ Ultra-small (~420 bytes) library for date math and converting durations to and f
 | library | string to ms | ms to string | date math | size<sup>1</sup> | relative size<sup>2</sup> | 
 | --- | :-: | :-: | :-: | :-: | :-: |
 | [itty-time](https://www.npmjs.com/package/itty-time) | ✅ | ✅ | ✅ | 400b | **1x** |
-| [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms)<sup>3</sup> | ✅ | ✅ | ❌ | 435b | 1.01x |
+| [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms) | ✅ | ✅ | ❌ | 435b | 1.01x |
 | [ms](https://www.npmjs.com/package/ms) | ✅ | ❌ | ❌ | 938b | 2.04x |
 | [pretty-ms](https://www.npmjs.com/package/pretty-ms) | ❌ | ✅ | ❌ | 1.04kB | 2.31x |
 | [humanize-duration](https://www.npmjs.com/package/humanize-duration) | ❌ | ✅ | ❌ | 6.74kB | 15x |
 
 <sup>1: minified and gzipped</sup> &nbsp;
 <sup>2: smaller is better</sup> &nbsp;
-<sup>3: this ~2x the speed for single-unit parsing</sup>
 
 ---
 

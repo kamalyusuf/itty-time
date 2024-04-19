@@ -1,6 +1,6 @@
 {
   "name": "itty-time",
-  "version": "1.0.0-next.2",
+  "version": "1.0.0-next.3",
   "description": "Ultra-small (~420 bytes) library for date math and converting durations to and from strings.",
   "main": "./index.js",
   "module": "./index.mjs",
