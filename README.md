@@ -1,42 +1,16 @@
 <br />
 
-<p align="left">
-  <a href="https://itty.dev/itty-time">
-     <img src="https://github.com/kwhitley/itty-time/assets/865416/e45b9e04-a442-43b1-9961-59d62c62e88a" alt="itty-time" height="120" />
-  </a>
-  <br />
 <p>
-
-<p align="left">
-  <a href="https://npmjs.com/package/itty-time" target="_blank">
-    <img src="https://img.shields.io/npm/v/itty-time.svg?style=flat-square" alt="npm version" />
-  </a>
-  <a href="https://itty.ing/https://deno.bundlejs.com/?q=itty-time" target="_blank">
-    <img src="https://itty.ing/https://deno.bundlejs.com/?q=itty-time&badge&badge-style=flat-square" alt="bundle size" />
-  </a>
-  <a href="https://github.com/kwhitley/itty-time/actions/workflows/verify.yml" target="_blank">
-    <img src="https://img.shields.io/github/actions/workflow/status/kwhitley/itty-time/verify.yml?branch=v1.x&style=flat-square" alt="build status" />
-  </a>
-  <a href="https://coveralls.io/github/kwhitley/itty-time?branch=v1.x" target="_blank">
-    <img src="https://img.shields.io/coveralls/github/kwhitley/itty-time/v1.x?style=flat-square" alt="code coverage" />
-  </a>
-  <!-- <a href="https://npmjs.com/package/itty-time" target="_blank">
-    <img src="https://img.shields.io/npm/dw/itty-time?style=flat-square" alt="weekly downloads" />
-  </a> -->
-  <a href="https://github.com/kwhitley/itty-time/issues" target="_blank">
-    <img src="https://img.shields.io/github/issues/kwhitley/itty-time?style=flat-square" alt="open issues" />
-  </a>
-
-  <a href="https://discord.gg/53vyrZAu9u" target="_blank">
-    <img src="https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff" alt="join us on discord" />
-  </a>
-<!--   <a href="https://github.com/kwhitley/itty-time" target="_blank">
-    <img src="https://img.shields.io/github/stars/kwhitley/itty-time?style=social" alt="Repo stars" />
-  </a> -->
-<!--   <a href="https://www.twitter.com/ittydev" target="_blank">
-    <img src="https://img.shields.io/twitter/follow/ittydev.svg?style=social&label=Follow" alt="Follow ittydev" />
-  </a> -->
+<a href="https://itty.dev/itty-time" target="_blank">
+  <img src="https://github.com/kwhitley/itty-time/assets/865416/e45b9e04-a442-43b1-9961-59d62c62e88a" alt="itty-time" height="120" />
+</a>
 </p>
+
+[![Version](https://img.shields.io/npm/v/itty-time.svg?style=flat-square)](https://npmjs.com/package/itty-time)
+[![Bundle Size](https://deno.bundlejs.com/?q=itty-time&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-time)
+[![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-time?style=flat-square)](https://coveralls.io/github/kwhitley/itty-time)
+[![Issues](https://img.shields.io/github/issues/kwhitley/itty-time?style=flat-square)](https://coveralls.io/github/kwhitley/itty-time)
+[![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
 ###  [v1 Documentation](https://itty.dev/itty-time) &nbsp;| &nbsp; [Discord](https://discord.gg/53vyrZAu9u) 
 
