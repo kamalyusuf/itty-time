@@ -4,7 +4,7 @@
   <a href="https://itty.dev/itty-time">
      <img src="https://github.com/kwhitley/itty-time/assets/865416/e45b9e04-a442-43b1-9961-59d62c62e88a" alt="itty-time" height="120" />
   </a>
-  <br /><br />
+  <br />
 <p>
 
 <p align="center">
