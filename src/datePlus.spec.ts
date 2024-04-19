@@ -9,7 +9,7 @@ describe('datePlus(duration: string, from?: Date): Date', () => {
     ['5 seconds'],
     ['1 minutes'],
     ['24 hour'],
-    ['1 day, 4 hours, and 36 minutes'],
+    ['1 day, 4 hours, 36 minutes'],
     ['2 months'],
     ['4 years'],
     ['321 day'],

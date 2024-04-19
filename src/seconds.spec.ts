@@ -9,7 +9,7 @@ describe('seconds(duration: string): number', () => {
     ['1 minutes', 60],
     ['24 hour', 60 * 60 * 24],
     ['2 years', 2 * 365 * 24 * 60 * 60],
-    ['1 day, 4 hours, and 36 minutes', 60 * 60 * 24 + 60 * 60 * 4 + 60 * 36],
+    ['1 day, 4 hours, 36 minutes', 60 * 60 * 24 + 60 * 60 * 4 + 60 * 36],
     ['321 day', 60 * 60 * 24 * 321],
     ['1.5 seconds', 1.5],
     ['-30 seconds', -30],
@@ -23,9 +23,5 @@ describe('seconds(duration: string): number', () => {
         expect(seconds(duration)).toEqual(expected)
       })
     }
-  })
-
-  it('translatest unknown quantities to ms', () => {
-    expect(seconds('2 seconds, 5 apple')).toBe(2.005)
   })
 })

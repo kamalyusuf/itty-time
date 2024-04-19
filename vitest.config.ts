@@ -5,7 +5,10 @@ export default defineConfig({
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     coverage: {
       reporter: ['text', 'lcov'],
-      exclude: [ '**/lib/**' ],
+      exclude: [
+        '**/lib/**',
+        '**/bench/**',
+      ],
     },
     environment: 'jsdom',
   },
