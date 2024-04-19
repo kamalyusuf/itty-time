@@ -8,12 +8,10 @@ describe('seconds(duration: string): number', () => {
     ['5 seconds', 5],
     ['1 minutes', 60],
     ['24 hour', 60 * 60 * 24],
-    ['2 years', 2 * 365 * 24 * 60 * 60],
-    ['1 day, 4 hours, 36 minutes', 60 * 60 * 24 + 60 * 60 * 4 + 60 * 36],
+    ['2 years', 2 * 365.25 * 24 * 60 * 60],
     ['321 day', 60 * 60 * 24 * 321],
     ['1.5 seconds', 1.5],
     ['-30 seconds', -30],
-    ['1 hour, -30 minutes', 30 * 60],
     [10000, 10],
   ]
 

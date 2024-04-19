@@ -15,23 +15,23 @@ type DurationType = (
 export const duration: DurationType = (
   ms: number,
   {
-    parts,
+    parts = 9,
     join = ', ',
   }: DurationOptions = {},
-  result: any = [], // internal argument - DO NOT EXPOSE
 ) => {
-  for (const [unit, value] of Object.entries(units)) {
-    if (ms >= value) {
-      const count = Math.floor(ms / value)
-      ms %= value
-      result.push([unit + (count > 1 || unit == 'm' ? 's' : ''), count])
+  let count, result: [string, number][] = []
+  for (let [unit, value] of Object.entries(units)) {
+    if (ms > value && parts) {
+      ms -= (count = ms / value | 0) * value
+      if (unit == 'second') count += ms / 1e3
+      if (count > 1) unit += 's'
+      // @ts-ignore
+      result.push(join ? (count + ' ' + unit) : [unit, count])
+      parts--
     }
   }
 
   return join
-  ? result
-      .slice(0, parts)
-      .map(([units, count]: any) => count + ' ' + units)
-      .join(join)
-  : result.slice(0, parts)
+  ? result.join(join)
+  : result
 }

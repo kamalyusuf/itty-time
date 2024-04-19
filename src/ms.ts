@@ -1,27 +1,10 @@
 import { units } from './lib/units'
 
-type Ms = (duration: string | number) => number
-
 // FUNCTION: get number of seconds from a duration string
-export const ms: Ms = (duration: string | number): number => {
-  // early exit if it is a valid number
+export const ms = (duration: string | number): number => {
   if (+duration) return +duration
-
   // @ts-ignore
-  let segments = duration.split?.(/, */), total = 0
+  const [, value, unit] = duration.match(/^([^ ]+) *(\w\w*?)s?$/) || []
 
-  for (const segment of segments) {
-    const [, value, unit] = segment.match(/^(.+) +(\w\w*?)s?$/) || []
-    total += +value * units[unit]
-  }
-
-  return total
+  return +value * (units[unit] || 1)
 }
-
-// export const ms: Ms = (duration: string | number): number => {
-//   if (+duration) return +duration
-
-//   // @ts-ignore
-//   const [, value, unit] = duration.match(/^(.+) +(\w\w*?)s?$/) || []
-//   return +value * units[unit]
-// }
