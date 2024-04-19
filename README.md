@@ -44,15 +44,14 @@
 
 ---
 
-Ultra-small (~400 bytes) library for date math and converting durations to and from strings.
+Ultra-small (~400 bytes) library for TTL date math and converting ms durations to and from strings.
 
 ## Features
 
 - Tiny. The entire library is ~400 bytes, or take only what you need.
-- Use text strings (including multi-part) to describe durations.
+- Convert string durations to ms/seconds.
+- Convert ms to human-readable string durations.
 - Add durations to dates.
-- Get human-readable durations from ms duration.
-- Works everywhere.
 
 ## Comparison to other top-rated libraries
 | library | string to ms | ms to string | date math | size<sup>1</sup> | relative size<sup>2</sup> | 
