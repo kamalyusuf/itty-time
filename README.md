@@ -57,8 +57,8 @@ Ultra-small (~450 bytes) library for simplifying date math and TTLs.
 ## Comparison to other top-rated libraries
 | library | string to ms | ms to string | multi-part | date math | size<sup>1</sup> | relative size<sup>2</sup> | 
 | --- | :-: | :-: | :-: | :-: | :-: | :-: |
-| [itty-time](https://www.npmjs.com/package/itty-time) | ✅ | ✅ | ✅ | ✅ | 450b | 1.05x |
-| [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms)<sup>3</sup> | ✅ | ✅ | ❌ | ❌ | 428b | **1x** |
+| [itty-time](https://www.npmjs.com/package/itty-time) | ✅ | ✅ | ✅ | ✅ | 428b | **1x** |
+| [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms)<sup>3</sup> | ✅ | ✅ | ❌ | ❌ | 435b | 1.01x |
 | [ms](https://www.npmjs.com/package/ms) | ✅ | ❌ | ❌ | ❌ | 938b | 2.04x |
 | [pretty-ms](https://www.npmjs.com/package/pretty-ms) | ❌ | ✅ | ✅ | ❌ | 1.04kB | 2.31x |
 | [humanize-duration](https://www.npmjs.com/package/humanize-duration) | ❌ | ✅ | ✅ | ❌ | 6.74kB | 15x |
