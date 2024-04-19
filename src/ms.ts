@@ -11,7 +11,7 @@ export const ms: Ms = (duration: string | number): number => {
   let segments = duration.split?.(/, */), total = 0
 
   for (const segment of segments) {
-    const [, value, unit] = segment.toLowerCase().match(/^(.+) +(\w\w*?)s?$/) || []
+    const [, value, unit] = segment.match(/^(.+) +(\w\w*?)s?$/) || []
     total += +value * units[unit]
   }
 

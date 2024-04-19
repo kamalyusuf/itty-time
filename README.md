@@ -44,11 +44,11 @@
 
 ---
 
-Ultra-small (~450 bytes) library for simplifying date math and TTLs.
+Ultra-small (~430 bytes) library for date math and converting durations to and from strings.
 
 ## Features
 
-- Tiny. The entire library is ~450 bytes, or take only what you need.
+- Tiny. The entire library is ~430 bytes, or take only what you need.
 - Use text strings (including multi-part) to describe durations.
 - Add durations to dates.
 - Get human-readable durations from ms duration.
