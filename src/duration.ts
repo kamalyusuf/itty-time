@@ -20,18 +20,20 @@ export const duration: DurationType = (
   }: DurationOptions = {},
   result: [string, number][] = [], // internal argument - DO NOT EXPOSE
 ) => {
-  let count
+  let count, u
   for (const [unit, value] of Object.entries(units)) {
     if (ms > value && parts) {
       ms -= (count = ms / value | 0) * value
       if (unit == 'second') count += ms / 1e3
-      result.push([count > 1 ? unit + 's' : unit, count])
+      u = count > 1 ? unit + 's' : unit
+      // @ts-ignore
+      result.push(join ? (count + ' ' + u) : [u, count])
       parts--
     }
   }
 
   if (join) return result
-      .map(([units, count]: any) => count + ' ' + units)
+      // .map(([units, count]: any) => count + ' ' + units)
       .join(join)
 
   return result
