@@ -9,5 +9,5 @@ export const ms: Ms = (duration: string | number): number => {
   // @ts-ignore
   // const [, value, unit] = duration.match(/^(.+) +(\w\w*?)s?$/) || [] // slower
   const [, value, unit] = duration.match(/^([^ ]+) *(\w\w*?)s?$/) || []
-  return +value * units[unit]
+  return +value * (units[unit] || 1)
 }

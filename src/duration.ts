@@ -21,10 +21,11 @@ export const duration: DurationType = (
   result: any = [], // internal argument - DO NOT EXPOSE
 ) => {
   for (const [unit, value] of Object.entries(units)) {
-    if (ms >= value) {
-      const count = Math.floor(ms / value)
-      ms %= value
-      result.push([unit + (count > 1 || unit == 'm' ? 's' : ''), count])
+    let count = ms / value | 0
+    if (count) {
+      ms -= count * value
+      if (unit === 'second') count += ms / 1e3
+      result.push([count > 1 ? unit + 's' : unit, count])
     }
   }
 

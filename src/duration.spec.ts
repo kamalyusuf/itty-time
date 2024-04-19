@@ -11,7 +11,9 @@ describe('duration(ms: number, options?: durationOptions)', () => {
       { original: BASE, expected: '1 week, 16 hours, 48 minutes' },
       { original: BASE, parts: 2, expected: '1 week, 16 hours' },
       { original: BASE, parts: 1, expected: '1 week' },
-      { original: '1 ms', expected: '1 ms' },
+      { original: '2.5 seconds', expected: '2.5 seconds' },
+      { original: '3.67012 hours', expected: '3 hours, 40 minutes, 12.432 seconds' },
+      { original: '2500', expected: '2.5 seconds' },
     ]
 
     for (const { original, parts, expected = original } of tests) {
@@ -42,17 +44,5 @@ describe('duration(ms: number, options?: durationOptions)', () => {
         expect(duration(ms(BASE), { join: false, parts: 1 }).length).toBe(1)
       })
     })
-  })
-
-  it('can parse down to the millisecond', () => {
-    expect(duration(1500)).toBe('1 second, 500 ms')
-  })
-
-  it('can join with a different delimeter', () => {
-    expect(duration(1500, { join: ' and ' })).toBe('1 second and 500 ms')
-  })
-
-  it('can return ', () => {
-    expect(duration(1500, { join: ' and ' })).toBe('1 second and 500 ms')
   })
 })

@@ -15,5 +15,4 @@ export const units: Record<string, number> = {
   hour,
   minute,
   second,
-  m: 1, // translates to ms
 }
