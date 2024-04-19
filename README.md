@@ -44,11 +44,11 @@
 
 ---
 
-Ultra-small (~430 bytes) library for date math and converting durations to and from strings.
+Ultra-small (~420 bytes) library for date math and converting durations to and from strings.
 
 ## Features
 
-- Tiny. The entire library is ~430 bytes, or take only what you need.
+- Tiny. The entire library is ~420 bytes, or take only what you need.
 - Use text strings (including multi-part) to describe durations.
 - Add durations to dates.
 - Get human-readable durations from ms duration.
@@ -57,7 +57,7 @@ Ultra-small (~430 bytes) library for date math and converting durations to and f
 ## Comparison to other top-rated libraries
 | library | string to ms | ms to string | multi-part | date math | size<sup>1</sup> | relative size<sup>2</sup> | 
 | --- | :-: | :-: | :-: | :-: | :-: | :-: |
-| [itty-time](https://www.npmjs.com/package/itty-time) | ✅ | ✅ | ✅ | ✅ | 428b | **1x** |
+| [itty-time](https://www.npmjs.com/package/itty-time) | ✅ | ✅ | ✅ | ✅ | 418b | **1x** |
 | [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms)<sup>3</sup> | ✅ | ✅ | ❌ | ❌ | 435b | 1.01x |
 | [ms](https://www.npmjs.com/package/ms) | ✅ | ❌ | ❌ | ❌ | 938b | 2.04x |
 | [pretty-ms](https://www.npmjs.com/package/pretty-ms) | ❌ | ✅ | ✅ | ❌ | 1.04kB | 2.31x |

@@ -15,6 +15,13 @@ export const ms: Ms = (duration: string | number): number => {
     total += +value * units[unit]
   }
 
-
   return total
 }
+
+// export const ms: Ms = (duration: string | number): number => {
+//   if (+duration) return +duration
+
+//   // @ts-ignore
+//   const [, value, unit] = duration.match(/^(.+) +(\w\w*?)s?$/) || []
+//   return +value * units[unit]
+// }
