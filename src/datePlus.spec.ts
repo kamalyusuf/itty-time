@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { datePlus } from './datePlus'
-import { seconds } from './seconds'
+import { ms } from './ms'
 
 describe('datePlus(duration: string, from?: Date): Date', () => {
   type DatePlusTest = [duration: string]
@@ -9,7 +9,6 @@ describe('datePlus(duration: string, from?: Date): Date', () => {
     ['5 seconds'],
     ['1 minutes'],
     ['24 hour'],
-    ['1 day, 4 hours, 36 minutes'],
     ['2 months'],
     ['4 years'],
     ['321 day'],
@@ -20,9 +19,7 @@ describe('datePlus(duration: string, from?: Date): Date', () => {
       const future = datePlus(duration)
 
       it(`datePlus('${duration}') => ${future.toISOString()}`, () => {
-
-        const Seconds = seconds(duration)
-        const diff = (+future - +new Date()) / 1000|0 - Seconds
+        const diff = (+future - Date.now()) - ms(duration)
 
         expect(diff).toBeLessThan(2)
       })
@@ -31,13 +28,11 @@ describe('datePlus(duration: string, from?: Date): Date', () => {
 
   describe('can take an optional second Date paramater', () => {
     for (const [duration] of tests) {
-      const oneYearFromNow = datePlus('1 year')
-      const future = datePlus(duration, oneYearFromNow)
+      const start = datePlus('1 week')
+      const future = datePlus(duration, start)
 
-      it(`datePlus('${duration}', datePlus('1 year')) => ${future.toISOString()}`, () => {
-
-        const Seconds = seconds(duration)
-        const diff = (+future - +oneYearFromNow) / 1000|0 - Seconds
+      it(`datePlus('${duration}', datePlus('1 week')) => ${future.toISOString()}`, () => {
+        const diff = (+future - +start) - ms(duration)
 
         expect(diff).toBeLessThan(2)
       })

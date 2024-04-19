@@ -5,7 +5,7 @@ const
   day = hour * 24,
   week = day * 7,
   month = day * 30,
-  year = day * 365
+  year = day * 365.25
 
 export const units: Record<string, number> = {
   year,

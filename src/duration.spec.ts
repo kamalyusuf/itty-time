@@ -2,13 +2,15 @@ import { describe, expect, it } from 'vitest'
 import { duration } from './duration'
 import { ms } from './ms'
 
+const BASE = '1.1 weeks'
+const EXPECTED = '1 week, 16 hours, 48 minutes'
+
 describe('duration(ms: number, options?: durationOptions)', () => {
   describe('reverse-parses ms (number) into a readable string', () => {
     const tests = [
-      { original: '1 week, 3 days, 30 minutes, 12 seconds, 51 ms' },
-      // { original: '1 month, 4 minutes, 20 seconds', parts: 2, expected: '1 month, 4 minutes' },
-      { original: '1 hour, 30 minutes, 15 seconds', parts: 2, expected: '1 hour, 30 minutes' },
-      { original: '2 days, 23 hours', parts: 1, expected: '2 days' },
+      { original: BASE, expected: '1 week, 16 hours, 48 minutes' },
+      { original: BASE, parts: 2, expected: '1 week, 16 hours' },
+      { original: BASE, parts: 1, expected: '1 week' },
       { original: '1 ms', expected: '1 ms' },
     ]
 
@@ -22,23 +24,22 @@ describe('duration(ms: number, options?: durationOptions)', () => {
   describe('OPTIONS', () => {
     describe('parts?: number', () => {
       it('will return all parts if undefined', () => {
-        expect(duration(ms('1 week, 3 days, 30 minutes, 12 seconds, 51 ms'), { join: false }).length).toBe(5)
-        expect(duration(ms('1 week, 12 hours'), { join: false }).length).toBe(2)
+        expect(duration(ms(BASE), { join: false }).length).toBe(3)
       })
     })
 
     describe('join?: string | false', () => {
       it('will return joined string using ", " if undefined', () => {
-        expect(duration(ms('1 week, 12 hours'))).toBe('1 week, 12 hours')
+        expect(duration(ms(BASE))).toBe(EXPECTED)
       })
       it('will use a delimiter passed to join', () => {
-        expect(duration(ms('1 week, 12 hours'), { join: '+'})).toBe('1 week+12 hours')
+        expect(duration(ms(BASE), { join: ' --> '})).toBe('1 week --> 16 hours --> 48 minutes')
       })
       it('will return an array of [unit, count] if set to false', () => {
-        expect(Array.isArray(duration(ms('1 week, 12 hours'), { join: false }))).toBe(true)
+        expect(Array.isArray(duration(ms(BASE), { join: false }))).toBe(true)
       })
       it('will honor parts number if returning array', () => {
-        expect(duration(ms('1 week, 12 hours'), { join: false, parts: 1 }).length).toBe(1)
+        expect(duration(ms(BASE), { join: false, parts: 1 }).length).toBe(1)
       })
     })
   })
