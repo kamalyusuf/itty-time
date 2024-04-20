@@ -38,4 +38,22 @@ describe('datePlus(duration: string, from?: Date): Date', () => {
       })
     }
   })
+
+  // describe('BAD INPUTS', () => {
+  //   const inputTypes = [
+  //     ['object', {}],
+  //     ['number', 1011],
+  //     ['true', true],
+  //     ['false', false],
+  //     ['date', new Date],
+  //     // ['function', () => {}],
+  //   ]
+
+  //   for (const [type, value] of inputTypes) {
+  //     it(`when receiving ${type} as first argument`, () => {
+  //       // @ts-ignore
+  //       expect(() => datePlus(value)).toThrow()
+  //     })
+  //   }
+  // })
 })

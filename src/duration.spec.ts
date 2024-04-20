@@ -45,4 +45,33 @@ describe('duration(ms: number, options?: durationOptions)', () => {
       })
     })
   })
+
+  describe('INPUT HANDLING', () => {
+    const date = new Date
+
+    const inputTypes = [
+      { type: 'number', value: 0, returns: '0 seconds' },
+      { type: 'number', value: 1000, returns: '1 second' },
+      { type: 'number', value: 500, returns: '0.5 seconds' },
+      { type: 'number', value: 10000, returns: '10 seconds' },
+      { type: 'string duration', value: '1 hour', returns: 'NaN seconds' },
+      { type: 'true', value: true, returns: '0.001 seconds' },
+      { type: 'date', value: date },
+      { type: 'false', value: false, returns: '0 seconds' },
+      { type: 'unparsable string', value: '456apple', returns: 'NaN seconds' },
+      { type: 'object', value: {}, returns: 'NaN seconds' },
+      { type: 'function', value: () => {}, returns: 'NaN seconds' },
+    ]
+
+    for (const { type, value, returns } of inputTypes) {
+      const expected = `return ${returns !== undefined ? returns || '""' : 'something' }`
+
+      it(`when receiving ${type} (e.g. ${value}), it should ${expected}`, () => {
+        if (returns !== undefined) {
+          // @ts-ignore
+          expect(duration(value)).toBe(returns)
+        }
+      })
+    }
+  })
 })
