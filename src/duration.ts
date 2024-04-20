@@ -22,13 +22,12 @@ export const duration: DurationType = (
   let count, result: [string, number][] = []
 
   for (let [unit, value] of Object.entries(units)) {
-    if ((ms >= value || unit == 'second') && parts-- > 0) {
+    if (ms >= value && parts-- > 0) {
       ms -= (count = ms / value | 0) * value
-      if (!parts || unit == 'second') count += ms / value
-      if (count != 1) unit += 's'
+      if (!parts) count += ms / value
+      if (count != 1 || unit == 'm') unit += 's'
       // @ts-ignore
       result.push(join ? count + ' ' + unit : [unit, count])
-      if (!ms) break
     }
   }
 

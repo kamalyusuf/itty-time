@@ -11,9 +11,10 @@ describe('duration(ms: number, options?: durationOptions)', () => {
       { original: BASE, expected: '1 week, 16 hours, 48 minutes' },
       { original: BASE, parts: 2, expected: '1 week, 16.8 hours' },
       { original: BASE, parts: 1, expected: '1.1 weeks' },
-      { original: '2.5 seconds', expected: '2.5 seconds' },
-      { original: '3.67012 hours', expected: '3 hours, 40 minutes, 12.432 seconds' },
-      { original: '2500', expected: '2.5 seconds' },
+      { original: '2.5 seconds', expected: '2 seconds, 500 ms' },
+      { original: '2.5 seconds', parts: 1, expected: '2.5 seconds' },
+      { original: '3.67012 hours', expected: '3 hours, 40 minutes, 12 seconds, 432 ms' },
+      { original: '2500', parts: 1, expected: '2.5 seconds' },
     ]
 
     for (const { original, parts, expected = original } of tests) {
@@ -50,17 +51,17 @@ describe('duration(ms: number, options?: durationOptions)', () => {
     const date = new Date
 
     const inputTypes = [
-      { type: 'number', value: 0, returns: '0 seconds' },
+      { type: 'number', value: 0, returns: '' },
       { type: 'number', value: 1000, returns: '1 second' },
-      { type: 'number', value: 500, returns: '0.5 seconds' },
+      { type: 'number', value: 500, returns: '500 ms' },
       { type: 'number', value: 10000, returns: '10 seconds' },
-      { type: 'string duration', value: '1 hour', returns: 'NaN seconds' },
-      { type: 'true', value: true, returns: '0.001 seconds' },
+      { type: 'string duration', value: '1 hour', returns: '' },
+      { type: 'true', value: true, returns: '1 ms' },
       { type: 'date', value: date },
-      { type: 'false', value: false, returns: '0 seconds' },
-      { type: 'unparsable string', value: '456apple', returns: 'NaN seconds' },
-      { type: 'object', value: {}, returns: 'NaN seconds' },
-      { type: 'function', value: () => {}, returns: 'NaN seconds' },
+      { type: 'false', value: false, returns: '' },
+      { type: 'unparsable string', value: '456apple', returns: '' },
+      { type: 'object', value: {}, returns: '' },
+      { type: 'function', value: () => {}, returns: '' },
     ]
 
     for (const { type, value, returns } of inputTypes) {
