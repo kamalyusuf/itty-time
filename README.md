@@ -12,7 +12,7 @@
 [![Issues](https://img.shields.io/github/issues/kwhitley/itty-time?style=flat-square)](https://coveralls.io/github/kwhitley/itty-time)
 [![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
-###  [v1 Documentation](https://itty.dev/itty-time) &nbsp;| &nbsp; [Discord](https://discord.gg/53vyrZAu9u) 
+###  [v1 Documentation](https://itty.dev/itty-time) &nbsp;| &nbsp; [Discord](https://discord.gg/53vyrZAu9u)
 
 ---
 
@@ -28,7 +28,7 @@ Ultra-small (~390 bytes) library for TTL date math and converting ms durations t
 ## Comparison to other top-rated libraries
 | library | string to ms | ms to string | date math | size<sup>1</sup>
 | --- | :-: | :-: | :-: | :-: |
-| [itty-time](https://www.npmjs.com/package/itty-time) | ✅ | ✅ | ✅ | 386b |
+| [itty-time](https://www.npmjs.com/package/itty-time) | ✅ | ✅ | ✅ | 391b |
 | [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms) | ✅ | ✅ | ❌ | 435b |
 | [ms](https://www.npmjs.com/package/ms) | ✅ | ❌ | ❌ | 938b |
 | [pretty-ms](https://www.npmjs.com/package/pretty-ms) | ❌ | ✅ | ❌ | 1.04kB |
@@ -38,11 +38,11 @@ Ultra-small (~390 bytes) library for TTL date math and converting ms durations t
 
 ## Performance
 
-The only function most folks care about in terms of raw performance is string to ms conversion.  In this, itty stacks up pretty well, being significantly faster than [ms](https://www.npmjs.com/package/ms), but falling to the insanely-optimized [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms).  
+The only function most folks care about in terms of raw performance is string to ms conversion.  In this, itty stacks up pretty well, being significantly faster than [ms](https://www.npmjs.com/package/ms), but falling to the insanely-optimized [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms).
 
 ![image](https://github.com/kwhitley/itty-time/assets/865416/71170005-7962-4bc8-9a66-f4ad5713e545)
 
-Moral of the story, probably don't use [ms](https://www.npmjs.com/package/ms).  
+Moral of the story, probably don't use [ms](https://www.npmjs.com/package/ms).
 
 Use Luke's if you want the absolute fastest parsing, or itty if you want some of the other functions as well.  If you're byte-counting, itty wins again, but if you're byte-counting that hard, you're probably better off with raw ms math if you can stomach it.
 
@@ -78,7 +78,7 @@ ms('2 weeks') // 1209600000
   <code>duration(ms: number) => string</code>
 </h4>
 
-Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?  
+Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?
 
 You could build it yourself, or import the fantastic [humanize-duration](https://www.npmjs.com/package/humanize-duration) library that inspired this, but at 6.3kB<sup>1</sup>, it's over 20x the size of this 280 byte function.
 
