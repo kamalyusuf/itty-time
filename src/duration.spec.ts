@@ -9,8 +9,8 @@ describe('duration(ms: number, options?: durationOptions)', () => {
   describe('reverse-parses ms (number) into a readable string', () => {
     const tests = [
       { original: BASE, expected: '1 week, 16 hours, 48 minutes' },
-      { original: BASE, parts: 2, expected: '1 week, 16 hours' },
-      { original: BASE, parts: 1, expected: '1 week' },
+      { original: BASE, parts: 2, expected: '1 week, 16.8 hours' },
+      { original: BASE, parts: 1, expected: '1.1 weeks' },
       { original: '2.5 seconds', expected: '2.5 seconds' },
       { original: '3.67012 hours', expected: '3 hours, 40 minutes, 12.432 seconds' },
       { original: '2500', expected: '2.5 seconds' },
