@@ -24,4 +24,36 @@ describe('ms(duration: string): number', () => {
       })
     }
   })
+
+  describe('INPUT HANDLING', () => {
+    const date = new Date
+
+    const inputTypes = [
+      { type: 'number', value: 1000, returns: 1000 },
+      { type: 'string duration', value: '1 hour', returns: 1000 * 60 * 60 },
+      { type: 'true', value: true, returns: 1 },
+      { type: 'date', value: date, returns: +date },
+      { type: 'false', value: false, throws: true },
+      { type: '0', value: 0, throws: true },
+      { type: 'unparsable string', value: '456apple', returns: NaN },
+      { type: 'object', value: {}, throws: true },
+      { type: 'function', value: () => {}, throws: true },
+    ]
+
+    for (const { type, value, throws, returns } of inputTypes) {
+      const expected = throws
+                        ? 'THROW AN ERROR'
+                        : `return ${returns}`
+
+      it(`when receiving ${type} (e.g. ${value}), it should ${expected}`, () => {
+        if (throws) {
+          // @ts-ignore
+          expect(() => ms(value)).toThrow()
+        } else {
+          // @ts-ignore
+          expect(ms(value)).toBe(returns)
+        }
+      })
+    }
+  })
 })
