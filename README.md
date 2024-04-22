@@ -92,7 +92,7 @@ duration(3750000)
 
 // limit number of segments returned
 duration(3750000, { parts: 2 })
-// "1 hour, 2 minutes"
+// "1 hour, 2.5 minutes"
 
 // change the delimiter
 duration(3750000, { join: ' --> ' })
